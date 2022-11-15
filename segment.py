@@ -48,7 +48,13 @@ def query(interval,root):
 
     
 
-arr=[1,3,5,7,9,11]
+#arr=[1,3,5,7,9,11]
+arr=[]
+n=int(input("enter length of array : "))
+for i in range(0,n):
+    e=int(input())
+    arr.append(e)
+
 root=node((0,len(arr)-1))
 maketree(arr,root)
 while not root.val:
@@ -56,4 +62,11 @@ while not root.val:
 
 print("inorder : ")
 inorder(root)
-print(query((2,5),root))
+print("queries")
+while True:
+    l=int(input("enter lower : "))
+    h=int(input("enter high :"))
+    print(query((l,h),root))
+    c=int(input("0==exit 1==continue"))
+    if c==0:
+        break
