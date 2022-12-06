@@ -1,24 +1,24 @@
 import random
 
-m=5
-p=101
+m=int(input("enter number of keys : "))
+m=10
+p=7
 keys=[]
-for i in range(0,m):
-    keys.append(random.randint(1,2000))
 collision_frequency={}
 d={}
-A=random.randint(1,2000)
-B=random.randint(1,2000)
 
 def gethash(a,b,p,e,m):
     #print(a,b,p,e,m)
     #print(((a*e+b)%p)%m)
     return ((a*e+b)%p)%m
 
-
+print("enter the keys : ")
+for i in range(0,m):
+    e=int(input())
+    keys.append(e)
 
 for i in keys:
-    h=gethash(A,B,p,i,m)
+    h=gethash(5,6,p,i,m)
     try:
         collision_frequency[h]=collision_frequency[h]+1
     except:
@@ -36,18 +36,18 @@ for i in collision_frequency.keys():
         a=0
         b=0
     else:
-        a=random.randint(1,2000)
-        b=random.randint(1,2000)
+        a=random.randint(1,20)
+        b=random.randint(1,20)
     l[0]=a
     l[1]=b
     l[2]=M
     d[i]=l
-#print(d)
+print(d)
 for i in keys:
-    h=gethash(A,B,p,i,m)
+    h=gethash(5,6,p,i,m)
     a=d[h]
     h1=gethash(a[0],a[1],p,i,a[2]*a[2])
-    print(i,h,h1+3)
+    #print(i,h,h1,a[0],a[1],a[2])
     #print(h1)
     d[h][h1+3]=i
 
