@@ -51,7 +51,11 @@ for i in keys:
     #print(h1)
     d[h][h1+3]=i
 
-print(d)
+s="facebook"
+n=0
+for i in s:
+    n=n+(ord(i))
+print(n)
 
 
 
